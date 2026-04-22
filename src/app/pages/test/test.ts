@@ -33,7 +33,7 @@ export class Test implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.error.set('Failed to load tests');
+        this.error.set('Failed to load TESTS');
         this.loading.set(false);
       },
     });
