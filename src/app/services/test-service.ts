@@ -7,7 +7,7 @@ import { Testmodel } from '../models/testmodel'; // Import Post model
   providedIn: 'root', 
 })
 export class TestService {
-  private apiUrl = 'https://localhost:7032/api/test'; // API endpoint URL
+  private apiUrl = 'https://testcertapi-bxcnesashpdvcma2.australiasoutheast-01.azurewebsites.net/api/test'; // API endpoint URL
 
   constructor(private http: HttpClient) {} // Inject HttpClient
 
