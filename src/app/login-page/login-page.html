@@ -1,0 +1,22 @@
+<div class="container">
+  <header>
+    <h1>Login Page</h1>
+    <p>Click in the botton to Login..</p>
+  </header>
+  <main>
+
+    <button (click)="login()" class="btn btn-primary">Log In</button>
+
+    @if (this.authConfig.account) {
+      <div>
+        <div style="margin-bottom: 20px">
+          This is who is Logged in:{{ this.authConfig.account.name }}
+        </div>
+        <button (click)="getTests()" class="get-equipment-button" style="margin-right: 20px">
+          Go to Equipments
+        </button>
+        <button (click)="logout()" class="logout-button" style="margin-right: 20px">Logout</button>
+      </div>
+    }
+  </main>
+</div>

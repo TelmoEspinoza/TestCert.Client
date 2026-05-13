@@ -1,0 +1,50 @@
+<div class="container py-5">
+  <div class="row g-4 justify-content-center align-items-stretch">
+
+    <!-- Left card: Welcome / Authentication actions -->
+    <div class="col-12 col-md-10 col-lg-5">
+      <div class="card shadow-sm h-100">
+        <div class="card-body p-4 p-md-5">
+
+          <!-- Page heading -->
+          <h2 class="fw-bold mb-2">Welcome to MyApp this is home page</h2>
+
+          <!-- Supporting description text -->
+          <p class="text-muted mb-4">
+            Login or create a new account to continue.
+          </p>
+
+          <!-- Angular control flow: shown when user is logged in -->
+           @if (this.authConfig.account) {
+
+            <!-- Success alert showing logged-in user information -->
+            <div class="alert alert-success d-flex align-items-center gap-2 mb-4" role="alert">
+              <i class="bi bi-check-circle-fill"></i>
+              <div>
+                This is who is Logged in:{{ this.authConfig.account.name }}
+              </div>
+            </div>
+
+            <!-- Navigation link to create another account -->
+            
+                  <button (click)="logout()" class="btn btn-primary" style="margin-right: 20px">Logout</button>
+
+          } @else {
+
+            <!-- Action buttons shown when user is not logged in -->
+            <div class="d-flex gap-2">
+              <a class="btn btn-primary" routerLink="/login">
+                <i class="bi bi-box-arrow-in-right"></i> Login
+              </a>
+
+             
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

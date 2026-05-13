@@ -1,4 +1,4 @@
-
+<!-- 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
@@ -27,15 +27,11 @@
 
           <li class="nav-item">
             
-            <a class="nav-link" routerLink="/equipment" routerLinkActive="active">Equipments</a>
+            <a class="nav-link" routerLink="/equipment" routerLinkActive="active">equipment</a>
           </li>
 
           <li class="nav-item">
-            <!-- routerLink="/about"
-                 Navigates to the About page.
-
-                 routerLinkActive="active"
-                 Highlights the menu item when /about is the active route. -->
+          
             <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
           </li>
 
@@ -46,4 +42,76 @@
     </div>
   </nav>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+<div class="min-vh-100 d-flex flex-column bg-light">
+  <!-- Top navigation bar -->
+
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container py-1">
+      <a class="navbar-brand fw-semibold" routerLink="/home">ShopSphere</a>
+      <div class="d-flex align-items-center gap-2">
+        <!-- Angular control flow: shown when user is logged in -->
+        @if (this.authConfig.account) {
+          <a
+            routerLink="/home"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Home
+          </a>
+          <a routerLink="/test" routerLinkActive="active">Tests</a>
+          <a routerLink="/equipment" routerLinkActive="active">Equipments</a>
+
+          <!-- Display currently logged-in user's name -->
+          <span class="text-white-50 small">
+           <b class="text-white">{{ this.authConfig.account.name }}</b>
+          </span>
+          <button class="btn btn-outline-light btn-sm" (click)="logout()">
+            <i class="bi bi-box-arrow-right"></i> Logout
+          </button>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Logout button -->
+        } @else {
+          <!-- Login link shown when user is not logged in -->
+          <a class="btn btn-outline-light btn-sm" routerLink="/login">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+
+          <!-- Register link for new users -->
+         
+        }
+      </div>
+    </div>
+  </nav>
+
+  <!-- Router outlet where routed components are rendered -->
+  <router-outlet></router-outlet>
+  <!-- FOOTER -->
+  <footer class="border-top bg-white">
+    <div class="container py-3">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <div class="fw-bold">ShopSphere</div>
+        <div class="text-muted small text-center">
+          Premium essentials • Fast delivery • Easy returns
+        </div>
+        <div class="d-flex gap-3 small">
+          <!-- Footer links also use routerLink for SPA navigation -->
+    
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
